@@ -12,7 +12,7 @@
 
 ## Overview
 
-This repository provides code and workflows for imputing missing AOD (Aerosol Optical Depth) data using a GAIN-based deep learning model. The imputation framework is designed for satellite-derived AOD products with missing observations and validated using AERONET ground truth data.
+This repository provides code and workflows for imputing missing Aerosol Optical Depth (AOD) data using a GAIN-based deep learning model. The imputation framework is designed for satellite-derived AOD products with missing observations and validated using AERONET ground truth data.
 
 ## Package Installation
 
@@ -21,7 +21,7 @@ This project requires Python 3.10 or later. Install all required dependencies us
 ```bash
 # Create and activate the Conda environment
 conda env create -f requirements.yml
-conda activate gain-aod
+conda activate aq-env
 ```
 
 ## Data Preparation
@@ -63,10 +63,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Citation
 
 ```
-@article{Your2025AOD,
-  title     = {Deep Learning-Based Imputation of Satellite AOD Using Generative Models: A Comparative Validation with AERONET},
-  author    = {Your Name and Co-authors},
-  year      = {2025},
-  journal   = {Environmental Data Science (in preparation)}
-}
 ```

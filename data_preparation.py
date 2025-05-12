@@ -30,12 +30,11 @@ koi = ['AODANA', 'BC', 'BLH', 'DU', 'ELEVATION', 'MAIAC', 'R', 'T2M', 'TCC', 'WI
 region_name = 'Northeast'
 region_abbr = abbr_dict_region.get(region_name)
 
-base_dir = f'./TrainingData/{region_name}/Imputation/'
+base_dir = f'./data/'
 
-
-hdf5_2021 = f"/{base_dir}/HDF5/{region_name}_20210101_20211231_20241126.hdf5"
-hdf5_2022 = f"/{base_dir}/HDF5/{region_name}_20220101_20221231_20241126.hdf5"
-hdf5_2023 = f"/{base_dir}/HDF5/{region_name}_20230101_20231231_20241126.hdf5"
+hdf5_2021 = f"{base_dir}/HDF5/{region_name}_20210101_20211231_20241126.hdf5"
+hdf5_2022 = f"{base_dir}/HDF5/{region_name}_20220101_20221231_20241126.hdf5"
+hdf5_2023 = f"{base_dir}/HDF5/{region_name}_20230101_20231231_20241126.hdf5"
 
 def scale_data_with_nans(data, scalers):
     channels = data.shape[-1]

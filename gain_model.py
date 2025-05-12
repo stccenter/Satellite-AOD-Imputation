@@ -456,16 +456,9 @@ if __name__ == "__main__":
         region_abbr = abbr_dict_region.get(region_name)
 
         # Read and process LULC data
-        lulc_filepath = f'/opt/yarn/ml-model/Ancillary_files/LULC/{region_name}/{region_abbr}_LULC.tif'
-        output_pkl =  f'/datastorage/Output/TrainingData/Pickle/{region_name}/Imputation/'
-        tif_path = f'/datastorage/Output/MODIS-MAIAC/Imputed/{region_name}/Version3/'
-
-        prj_file = '/opt/yarn/ml-model/Ancillary_files/Projection/lambert_conformal.prj'
-        prj_str = get_projection_string(prj_file)
-        crs = CRS.from_wkt(prj_str)
-        proj_string = crs.to_proj4()
-
-        p_hint = 0.2
+        lulc_filepath = f'./data/LULC/{region_abbr}_LULC.tif'
+        output_pkl =  f'./data/Pickle/'
+        models_path = f'./data/model/'
 
         print("Loading datasets...")
 
@@ -513,7 +506,6 @@ if __name__ == "__main__":
         print("Training and validation datasets prepared.")
 
         p_hint = 0.2
-        ####################################
         batch_size = 32
         num_epochs = 50
         alpha = 0.05
@@ -527,34 +519,6 @@ if __name__ == "__main__":
         g_weight_decay = 1e-5
         d_weight_decay = 1e-5
         betas = [0.5, 0.999]
-
-        metrics_path = f'/datastorage/Output/Results/Imputation/{region_name}/TVT/'
-        models_path = f'/datastorage/Output/Models/Imputation/{region_name}/'
-        figures_path = f'/datastorage/Output/Figures/Imputation/{region_name}/'
-
-        blh_fp = f'/opt/yarn/ml-model/Ancillary_files/Location/{region_name}/blh_2021001.tif'
-        print(blh_fp)
-        with rasterio.open(blh_fp) as src:
-                blh_data = src.read(1)
-                transform = src.transform  # Get the affine transformation
-                width = src.width
-                height = src.height
-
-        # Generate a grid of pixel coordinates
-        cols, rows = np.meshgrid(np.arange(width), np.arange(height))
-
-        # Transform pixel coordinates to spatial coordinates
-        xs, ys = rasterio.transform.xy(transform, rows, cols)
-
-        # Convert to numpy arrays
-        # lats = np.array(ys)
-        # longs = np.array(xs)
-
-        lats = np.array(ys).reshape(height, width)
-        longs = np.array(xs).reshape(height, width)
-
-        print("Latitude array shape:", lats.shape)
-        print("Longitude array shape:", longs.shape)
 
         train_loader = DataLoader(train_dataset, batch_size=batch_size, num_workers=2)
         val_loader = DataLoader(val_dataset, batch_size=batch_size,num_workers=2)
