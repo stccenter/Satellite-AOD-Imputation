@@ -25,11 +25,14 @@ conda activate aq-env
 ```
 
 ## Data Preparation
+1. **Download the AOD Dataset**
+   Download the `.h5` AOD dataset from the following link:
+   [Download AOD Dataset](https://gmuedu-my.sharepoint.com/:f:/g/personal/asrireng_gmu_edu/Ei3caNSZZl9Hqq9zkfNDvZMBz3AMiquIi6qvVmeax-TOZg?e=YM6lHR)
 
-1. Download the `.h5` AOD dataset using the link provided in `data/README.md`.
-2. Place the downloaded `.h5` file into the `data/` directory.
+2. **Move the File**
+   After downloading, place the `.h5` file into the `data/` directory of the project:
+
 3. Run the following script to prepare the training and test data:
-
 ```bash
 python data_preparation.py
 ```
@@ -58,7 +61,10 @@ This will compute RMSE, MAE, and correlation statistics comparing imputed AOD wi
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This work is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 
 ## Citation
 
